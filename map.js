@@ -149,7 +149,7 @@ const image = {
         const polyPath = new google.maps.Polyline({
           path: polyCoords[coord],
           geodesic: true,
-          strokeColor: "#ffff00",
+          strokeColor: "#ffe240",
           strokeOpacity: 3.0,
           strokeWeight: 6,
         });
