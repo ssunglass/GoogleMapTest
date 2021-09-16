@@ -1,5 +1,6 @@
 let map;
 const grid_level = document.getElementById("mode")
+const grid_btn = document.getElementById("floating-btn")
 let selectedValue = 50;
 
 
@@ -114,15 +115,12 @@ const image = {
  
 }
     
-
-
-
-
-
     map = new google.maps.Map(document.getElementById("map"), {
       center: knuLoc,
       zoom: 16,
     });
+
+
 
     const markers = locations.map((location, i) => {
         return new google.maps.Marker({
@@ -140,14 +138,17 @@ const image = {
         gridSize: 50,
        }
 
-      let markcluster =  new MarkerClusterer(map, markers, clusterOptions);
+
+
+
+      // let markcluster =  new MarkerClusterer(map, markers, clusterOptions);
 
        grid_level.addEventListener("change",()=> {
          clusterOptions.gridSize = document.getElementById("mode").value;
 
-        markcluster =  new MarkerClusterer(map, markers, clusterOptions);
+       let markcluster =  new MarkerClusterer(map, markers, clusterOptions);
 
-        console.log(markcluster.gridSize_)
+        console.log(markcluster);
          
 
         
