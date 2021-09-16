@@ -1,4 +1,6 @@
 let map;
+const grid_level = document.getElementById("mode")
+let selectedValue = 50;
 
 
 function initMap() {
@@ -132,15 +134,25 @@ const image = {
       
       });
 
-    
 
-    
-
-      const clusterOptions = {
+    const clusterOptions = {
         imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
         gridSize: 50,
        }
 
+      let markcluster =  new MarkerClusterer(map, markers, clusterOptions);
+
+       grid_level.addEventListener("change",()=> {
+         clusterOptions.gridSize = document.getElementById("mode").value;
+
+        markcluster =  new MarkerClusterer(map, markers, clusterOptions);
+
+        console.log(markcluster.gridSize_)
+         
+
+        
+        
+       })
 
    
 
@@ -160,12 +172,27 @@ const image = {
       
       };
 
-     const markcluster =  new MarkerClusterer(map, markers, clusterOptions);
+    
+
+     
+     
 
       
 
 
     };
+
+
+
+ 
+
+
+
+
+
+    
+
+
 
  
 
@@ -176,12 +203,17 @@ const image = {
 function init(){
 
     initMap();
+   
+
+
 
   
 
 };
 
 init()
+
+
 
 
   
